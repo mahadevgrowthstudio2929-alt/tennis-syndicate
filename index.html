@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<title>Tennis Syndicate | Tennis Community</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+:root {
+    --bg: #050906;
+    --green: #a3ff12;
+    --green2: #56d629;
+    --text: #f4f8f2;
+    --muted: #929d91;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Outfit', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* BACKGROUND EFFECTS */
+
+body::before {
+    content: "";
+    position: absolute;
+    width: 320px;
+    height: 320px;
+    background: rgba(115,255,20,0.12);
+    filter: blur(110px);
+    top: -130px;
+    left: -130px;
+}
+
+body::after {
+    content: "";
+    position: absolute;
+    width: 280px;
+    height: 280px;
+    background: rgba(40,180,70,0.10);
+    filter: blur(100px);
+    bottom: -130px;
+    right: -100px;
+}
+
+.container {
+    width: 100%;
+    max-width: 430px;
+    padding: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+/* MAIN CARD */
+
+.card {
+    width: 100%;
+    background: linear-gradient(
+        145deg,
+        rgba(22,35,23,0.97),
+        rgba(8,15,10,0.98)
+    );
+
+    border: 1px solid rgba(163,255,18,0.22);
+    border-radius: 27px;
+    padding: 25px 21px 22px;
+    text-align: center;
+
+    box-shadow:
+        0 20px 70px rgba(0,0,0,0.65),
+        inset 0 1px 0 rgba(255,255,255,0.06);
+
+    position: relative;
+    overflow: hidden;
+
+    animation: appear .8s ease both;
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: rgba(163,255,18,0.07);
+    filter: blur(65px);
+    top: -100px;
+    right: -70px;
+}
+
+/* LOGO */
+
+.logo-box {
+    width: 91px;
+    height: 91px;
+    margin: 0 auto 15px;
+    padding: 5px;
+
+    border-radius: 25px;
+    border: 1px solid rgba(163,255,18,0.55);
+
+    background: rgba(163,255,18,0.06);
+
+    box-shadow:
+        0 0 25px rgba(163,255,18,0.13),
+        inset 0 0 15px rgba(163,255,18,0.05);
+}
+
+.logo-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 19px;
+}
+
+/* STATUS */
+
+.status {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+
+    padding: 6px 12px;
+    border-radius: 30px;
+
+    border: 1px solid rgba(163,255,18,0.25);
+    background: rgba(163,255,18,0.07);
+
+    color: var(--green);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+
+    margin-bottom: 13px;
+}
+
+.status-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--green);
+    border-radius: 50%;
+    box-shadow: 0 0 9px var(--green);
+    animation: blink 1.5s infinite;
+}
+
+/* HEADING */
+
+h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -1px;
+    text-transform: uppercase;
+}
+
+h1 span {
+    color: var(--green);
+    text-shadow: 0 0 22px rgba(163,255,18,0.22);
+}
+
+.subtitle {
+    color: var(--muted);
+    font-size: 12px;
+    margin-top: 9px;
+    letter-spacing: .3px;
+    line-height: 1.5;
+}
+
+/* DIVIDER */
+
+.divider {
+    width: 48px;
+    height: 3px;
+    border-radius: 10px;
+    background: var(--green);
+    margin: 19px auto;
+    box-shadow: 0 0 12px rgba(163,255,18,0.5);
+}
+
+/* FLOATING HIGHLIGHTS */
+
+.highlights {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 13px;
+    margin: 4px 0 22px;
+}
+
+.highlight {
+    width: 86px;
+    height: 86px;
+    flex-shrink: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+
+    border-radius: 50%;
+
+    background: linear-gradient(
+        145deg,
+        rgba(163,255,18,0.12),
+        rgba(163,255,18,0.025)
+    );
+
+    border: 1px solid rgba(163,255,18,0.3);
+
+    box-shadow:
+        0 0 20px rgba(163,255,18,0.07),
+        inset 0 0 15px rgba(163,255,18,0.04);
+
+    animation: float 3s ease-in-out infinite;
+}
+
+.highlight:nth-child(2) {
+    animation-delay: .5s;
+}
+
+.highlight:nth-child(3) {
+    animation-delay: 1s;
+}
+
+.highlight .icon {
+    font-size: 20px;
+    color: var(--green);
+}
+
+.highlight strong {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .3px;
+}
+
+.highlight small {
+    font-size: 8px;
+    color: var(--muted);
+}
+
+/* JOIN BUTTON */
+
+.join-btn {
+    width: 100%;
+    height: 55px;
+    border: none;
+    border-radius: 14px;
+
+    background: linear-gradient(
+        110deg,
+        #b8ff36,
+        #7ee600,
+        #a3ff12
+    );
+
+    color: #091004;
+
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 1px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 7px 25px rgba(135,255,0,0.19),
+        inset 0 1px 0 rgba(255,255,255,0.5);
+
+    transition: .25s;
+}
+
+.join-btn:active {
+    transform: scale(.97);
+}
+
+.join-btn .arrow {
+    font-size: 19px;
+    transition: .25s;
+}
+
+.join-btn:hover .arrow {
+    transform: translateX(5px);
+}
+
+/* FOOTER */
+
+.footer {
+    margin-top: 15px;
+    color: #697569;
+    font-size: 9px;
+    letter-spacing: .7px;
+}
+
+.footer span {
+    color: #a3ff12;
+}
+
+/* ANIMATIONS */
+
+@keyframes blink {
+    50% { opacity: .3; }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(.97);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@media (max-width: 360px) {
+    .container {
+        padding: 13px;
+    }
+
+    .card {
+        padding: 19px 15px;
+    }
+
+    h1 {
+        font-size: 26px;
+    }
+
+    .highlight {
+        width: 77px;
+        height: 77px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <main class="card">
+
+        <div class="logo-box">
+            <img src="logo.png" alt="Tennis Syndicate Logo">
+        </div>
+
+        <div class="status">
+            <span class="status-dot"></span>
+            TENNIS COMMUNITY
+        </div>
+
+        <h1>
+            TENNIS <span>SYNDICATE</span>
+        </h1>
+
+        <p class="subtitle">
+            Your Space for Tennis Insights & Match Discussions
+        </p>
+
+        <div class="divider"></div>
+
+        <div class="highlights">
+
+            <div class="highlight">
+                <div class="icon">🎾</div>
+                <strong>TENNIS</strong>
+                <small>Focused</small>
+            </div>
+
+            <div class="highlight">
+                <div class="icon">📊</div>
+                <strong>INSIGHTS</strong>
+                <small>Match Analysis</small>
+            </div>
+
+            <div class="highlight">
+                <div class="icon">🌐</div>
+                <strong>COMMUNITY</strong>
+                <small>Stay Connected</small>
+            </div>
+
+        </div>
+
+        <button class="join-btn" onclick="window.open('https://t.me/+LHAN6QWk5qo5Y2I1', '_blank', 'noopener,noreferrer')">
+            JOIN THE COMMUNITY
+            <span class="arrow">↗</span>
+        </button>
+
+        <div class="footer">
+            TENNIS SYNDICATE <span>●</span> OFFICIAL COMMUNITY
+        </div>
+
+    </main>
+
+</div>
+
+</body>
+</html>
